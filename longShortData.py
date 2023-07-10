@@ -8,14 +8,14 @@ current_time = int(time.time())
 twenty_four_hours_ago = current_time - 24*60*60
 
 # Define symbols and API parameters
-symbols = ["BTCUSDT_PERP.A", "ETHUSDT_PEPR.A", "BNBUSDT_PERP.A", "XRPUSDT_PERP.A", "DOGEUSDT_PERP.A",
+symbols = ["BTCUSDT_PERP.A", "ETHUSDT_PERP.A", "BNBUSDT_PERP.A", "XRPUSDT_PERP.A", "DOGEUSDT_PERP.A",
            "SOLUSDT_PERP.A", "LTCUSDT_PERP.A", "MATICUSDT_PERP.A", "AVAXUSDT_PERP.A", "BCHUSDT_PERP.A",
            "LINKUSDT_PERP.A", "ATOMUSDT_PERP.A", "LDOUSDT_PERP.A", "APTUSDT_PERP.A", "ARBUSDT_PERP.A",
            "OPUSDT_PERP.A", "MKRUSDT_PERP.A", "SNXUSDT_PERP.A", "AAVEUSDT_PERP.A", "NEARUSDT_PERP.A"]
 
 params = {
     "symbols": symbols[2],  # Change the index as needed to select the desired symbol
-    "interval": "4hour",
+    "interval": "6hour",
     "from": twenty_four_hours_ago,
     "to": current_time,
     "api_key": "461e8931-6fc3-44a0-ad4f-ccb907ee0080"
