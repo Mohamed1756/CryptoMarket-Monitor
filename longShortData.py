@@ -14,7 +14,7 @@ symbols = ["BTCUSDT_PERP.A", "ETHUSDT_PERP.A", "BNBUSDT_PERP.A", "XRPUSDT_PERP.A
            "OPUSDT_PERP.A", "MKRUSDT_PERP.A", "SNXUSDT_PERP.A", "AAVEUSDT_PERP.A", "NEARUSDT_PERP.A"]
 
 params = {
-    "symbols": symbols[2],  # Change the index as needed to select the desired symbol
+    "symbols": symbols[5],  # Change the index as needed to select the desired symbol
     "interval": "6hour",
     "from": twenty_four_hours_ago,
     "to": current_time,
