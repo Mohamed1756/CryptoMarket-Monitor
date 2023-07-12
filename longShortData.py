@@ -1,7 +1,7 @@
 import datetime
 import time
 import requests
-import json
+from tabulate import tabulate
 
 # Get current time and calculate timestamp for 24 hours ago
 current_time = int(time.time())
@@ -14,7 +14,7 @@ symbols = ["BTCUSDT_PERP.A", "ETHUSDT_PERP.A", "BNBUSDT_PERP.A", "XRPUSDT_PERP.A
            "OPUSDT_PERP.A", "MKRUSDT_PERP.A", "SNXUSDT_PERP.A", "AAVEUSDT_PERP.A", "NEARUSDT_PERP.A"]
 
 params = {
-    "symbols": symbols[5],  # Change the index as needed to select the desired symbol
+    "symbols": symbols[9],  # Change the index as needed to select the desired symbol
     "interval": "6hour",
     "from": twenty_four_hours_ago,
     "to": current_time,
@@ -48,7 +48,8 @@ try:
             formatted_data.append(formatted_entry)
 
     # Print the formatted data
-    print(json.dumps(formatted_data, indent=2))
+    print(tabulate(formatted_data, headers="keys", tablefmt="psql"))
+
 
 except requests.exceptions.RequestException as e:
     print("Error making the API request:", str(e))

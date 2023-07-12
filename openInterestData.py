@@ -1,4 +1,5 @@
 import requests
+from tabulate import tabulate
 
 # Define symbols and API parameters
 symbols = """
@@ -27,10 +28,14 @@ data = response.json()
 # Sort the data in descending order based on open interest value
 sorted_data = sorted(data, key=lambda x: x['value'], reverse=True)
 
-# Display current open interest for each symbol in separate columns
-print("Symbol\t\t\tCurrent Open Interest ($) ")
-print("----------------------------------------")
+# Prepare the data for tabulate
+table_data = []
 for item in sorted_data:
     symbol = item['symbol']
-    oi_value = round(item['value'], 2)
-    print(f"{symbol}\t{oi_value}")
+    oi_value = "{:.2f}".format(item['value'])  # Format value as a decimal with two decimal places
+    table_data.append([symbol, oi_value])
+
+# Display the data using tabulate
+print(tabulate(table_data, headers=["Symbol", "Current Open Interest ($)"], tablefmt="psql", floatfmt=".2f"))
+
+

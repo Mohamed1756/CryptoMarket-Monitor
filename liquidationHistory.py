@@ -1,7 +1,7 @@
 import datetime
 import time
 import requests
-import pandas as pd
+from tabulate import tabulate
 
 # Get current time and calculate timestamp for 24 hours ago
 current_time = int(time.time())
@@ -47,5 +47,6 @@ for entry in data[0].get('history', []):
         }
         formatted_data.append(formatted_entry)
 
-df = pd.DataFrame(formatted_data)
-print(df.to_string(index=False))
+# Print the combined data in columns
+print("Liquidation History")
+print(tabulate(formatted_data, headers="keys", tablefmt="psql"))
